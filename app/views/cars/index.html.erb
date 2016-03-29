@@ -1,1 +1,17 @@
 <%= link_to 'New Car', new_car_path %>
+<h3>There are now <%= Car.count %> cars</h3>
+<table>
+<tbody>
+<% @cars.each do |car| %>
+  <tr>
+    <td><%= car.make %></td>
+    <td><%= car.model %></td>
+    <td><%= car.year %></td>
+    <td><%= car.price %></td>
+    <td><%= link_to 'Show', car %></td>
+    <td><%= link_to 'Edit', edit_car_path(car) %></td>
+    <td><%= link_to 'Scrap', car, method: :delete, data: { confirm: 'To the junkyard?' } %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>

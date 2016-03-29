@@ -15,4 +15,23 @@ feature 'Creating cars' do
 
     expect(page).to have_content('1967 Ford Mustang created')
   end
+  scenario 'verify that the list of cars and price show on homepage' do
+    car = FactoryGirl.create(:car)
+    car2 = FactoryGirl.create(:car)
+      visit '/'
+
+    expect(page).to have_content(car.make)
+    expect(page).to have_content(car.model)
+    expect(page).to have_content(car.year)
+    expect(page).to have_content(car.price)
+
+    expect(page).to have_content(car2.make)
+    expect(page).to have_content(car2.model)
+    expect(page).to have_content(car2.year)
+    expect(page).to have_content(car2.price)
+
+  end
+  scenario 'adding a second car' do
+  end
+  scenario ''
 end
